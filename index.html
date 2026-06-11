@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Care 01 - Meta Ads Tracking Dashboard</title>
+    <!-- Prevent window.fetch write crashes in proxy environments -->
+    <script>
+      (function() {
+        try {
+          var originalFetch = window.fetch;
+          var fetchStorage = originalFetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() {
+              return fetchStorage;
+            },
+            set: function(val) {
+              fetchStorage = val;
+            },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e) {
+          console.warn("Could not redefine window.fetch property descriptor:", e);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
